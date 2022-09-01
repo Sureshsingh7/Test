@@ -1,8 +1,8 @@
 ﻿param(
-[String] $configFile,
-[String] $replaceDirectory,
-[string] $env
+$configFile,
+$replaceDirectory,
+$env
 )
 Get-ChildItem $replaceDirectory | ForEach {
-     (Get-Content $_) | ForEach  {$_ -Replace '{name}', $env $configFile} | Set-Content $_
+     (Get-Content $_) | ForEach  {$_ -Replace '{name}', $env } | Set-Content $_
 }
